@@ -1,0 +1,11 @@
+### Get page
+GET http://localhost:3000
+
+
+### Save name
+POST http://localhost:3000/save
+Content-Type: application/json
+
+{
+  "name": "manja"
+}

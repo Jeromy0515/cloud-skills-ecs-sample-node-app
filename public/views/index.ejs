@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker Sample App</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" placeholder="name" id="nameInput">
+<button onclick="saveName()">save</button>
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0;i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].id %></td>
+                <td><%= data[i].name %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+
+<script>
+    function saveName(){
+
+        let _data = {
+            'name': document.getElementById('nameInput').value
+        }
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/save') // TODO: URL 변경
+        xhr.setRequestHeader('Content-type', "application/json")
+        xhr.send(JSON.stringify(_data))
+
+        xhr.addEventListener('load', (event) => {
+            switch(xhr.status) {
+                case 200:
+                    console.log(xhr.responseText)
+                    break;
+
+                default:
+                    console.log(xhr.responseText)
+                    break;
+            }
+        });
+    }
+</script>
+</body>
+</html>
