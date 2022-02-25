@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.0"
 services:
   webapp:
     image: public.ecr.aws/k6j1l5m9/pmj-node-app:latest
