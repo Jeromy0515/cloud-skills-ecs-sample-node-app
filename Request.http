@@ -1,9 +1,9 @@
 ### Get page
-GET http://ecs.mjpark.space
+GET https://ecs.mjpark.space
 
 
 ### Save name
-POST http://ecs.mjpark.space
+POST https://ecs.mjpark.space
 Content-Type: application/json
 
 {
