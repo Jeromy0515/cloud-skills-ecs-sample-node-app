@@ -1,9 +1,9 @@
 ### Get page
-GET http://localhost:3000
+GET http://ecs.mjpark.space
 
 
 ### Save name
-POST http://localhost:3000/save
+POST http://ecs.mjpark.space
 Content-Type: application/json
 
 {
