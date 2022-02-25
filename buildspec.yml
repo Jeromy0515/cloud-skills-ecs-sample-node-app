@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Pre Build Phase.."
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/k6j1l5m9
+  build:
+    commands:
+      - echo "Build Phase.."
+      - docker build . -t public.ecr.aws/k6j1l5m9/pmj-node-app:latest
+      - docker images
+  post_build:
+    commands:
+      - echo "Post Build Phase.."
+      - docker push public.ecr.aws/k6j1l5m9/pmj-node-app:latest
