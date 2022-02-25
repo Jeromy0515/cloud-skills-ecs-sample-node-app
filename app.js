@@ -8,7 +8,7 @@ const pool = mysql.createPool({
     user: 'root',
     password: 'Xptmxm1212!@',
     database: 'test',
-    port: '3333'
+    port: '3306'
 })
 
 app.use(express.static('public'))
