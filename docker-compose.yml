@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   webapp:
-    image: node-app:latest
+    image: public.ecr.aws/k6j1l5m9/pmj-node-app:latest
     restart: always
     container_name: web-app-container
     ports:
@@ -9,7 +9,7 @@ services:
     depends_on:
       - mysql
   mysql:
-    image: mysql:latest
+    image: public.ecr.aws/lts/mysql:latest
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=abcd1234
