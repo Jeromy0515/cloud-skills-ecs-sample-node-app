@@ -1,4 +1,4 @@
-FROM node:16.13.1
+FROM public.ecr.aws/docker/library/node:latest
 
 RUN mkdir -p /app/public/views
 
