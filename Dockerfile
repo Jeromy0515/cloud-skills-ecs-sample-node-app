@@ -12,6 +12,6 @@ COPY app.js /app/
 
 COPY ./public/views/index.ejs /app/public/views/
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD [ "node", "app.js" ]

@@ -3,6 +3,7 @@ var app = express();
 var mysql = require('mysql')
 var bodyParser = require('body-parser')
 
+/*
 const pool = mysql.createPool({
     host: 'host.docker.internal',
     user: 'root',
@@ -10,6 +11,7 @@ const pool = mysql.createPool({
     database: 'test',
     port: '3306'
 })
+*/
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended: true}))
@@ -21,24 +23,11 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res)=>{
 
-    pool.getConnection((err, connection) => {
-        if(err)
-            throw err;
-
-        connection.query('SELECT * FROM user;',
-            (error, results) => {
-
-                if(error)
-                    throw error;
-
-                res.render('index.ejs',{
-                    data:results
-                })
-            })
-    })
+    res.render('index.ejs')
 
 });
 
+/*
 app.post('/save', (req, res) => {
     let name = req.body.name;
 
@@ -56,6 +45,7 @@ app.post('/save', (req, res) => {
             })
     })
 })
+*/
 
 app.get('/health', (req, res) => {
     res.send({"status": "ok"})
@@ -65,6 +55,6 @@ app.all('*', (req, res) => {
     res.status(404).send('<h1 align="center">ERROR 404 NOT FOUND</h1>')
 })
 
-app.listen(3000,'0.0.0.0',()=>{
-    console.log('Server Start : port 3000');
+app.listen(80,'0.0.0.0',()=>{
+    console.log('Server Start : port 80');
 });
