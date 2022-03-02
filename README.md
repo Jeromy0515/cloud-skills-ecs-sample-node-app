@@ -1,8 +1,11 @@
 # Cloud Skills ECS Sample Node.js Application
 
 ## How to Make
-Using docker container to separate web server's environment and database server's environment,
-and then Using docker compose to manage application.
+Build Dockerfile to make docker image including Node.js Web Application.
+
+Docker image was pushed to the Public Elastic Container Repository.
+
+Using Elastic Container Service in AWS to deploy docker container.
 
 
 ## How to Use
